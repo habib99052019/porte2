@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>رمضان اليومي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #fff5e6, #ffd9b3);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem;
+      background-color: #ffb84d;
+      color: white;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 15px;
+      padding: 2rem;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card h2 {
+      color: #ff6600;
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background-color: #ff6600;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn:hover {
+      background-color: #e65c00;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #ffb84d;
+      color: white;
+    }
+
+    @media(max-width: 600px) {
+      .card {
+        padding: 1.5rem;
+      }
+
+      header h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>رمضان اليومي 🌙</h1>
+    <p>اقرأ اليوم جزء جديد من العلم والعبادة</p>
+  </header>
+
+  <main>
+    <div class="card">
+      <h2 id="content-title">حديث اليوم</h2>
+      <p id="content-text">مرحباً بك في رمضان! إليك حديث اليوم: "إنما الأعمال بالنيات…" </p>
+      <div class="buttons">
+        <button class="btn" onclick="prevDay()">السابق</button>
+        <button class="btn" onclick="nextDay()">التالي</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © 2026 رمضان اليومي
+  </footer>
+
+  <script>
+    const contents = [
+      {title: "اليوم 1: حديث", text: `ولد النبي ﷺ في مكة، وكان يتميّز بالصدق حتى قبل البعثة. درس: الصدق أساس الإيمان
+
+تخيّل معايا، في مكة، في عام معروف بالجاهلية، في مجتمع اللي الكذب والخداع كان موجود بكثرة، تولد ولد صغير اسمو محمد ﷺ. من صغره، الناس كانوا يلاحظوا فيه حاجة غريبة: الصدق والوفاء، حاجة مش عادية في الوقت هذا. حتّى كانو الناس الكبار يحكيو عليه ويقولوا: “هاو الصادق الأمين، ولد مختلف عن البقية.”
+
+الطفل الصادق هذا، ما كانش يضحك بالكذب باش يتهنى ولا يربح حاجة. لا، كان دايمًا يقول الحق حتى كان صعب، وكان يحترم الكلمة ويكمل وعدو. يمكن تظن إنو حاجة بسيطة، أما في مجتمع وين الكذب كان عادي، هاذي حاجة كبيرة برشا.
+
+الصدق متاعه ما كانش محصور في الكلام، بل حتى في أفعاله اليومية. كيف يلعب مع أصحابه، كيف يساعد الناس، كيف يتعامل مع العائلة… الكل حاجة فيها أمانة وحق. هالصدق خلاه يكسب حب وثقة الناس من صغيرو، والناس كانوا يجيوا له باش يستشيروه ويناقشوه، على خاطر يعرفوا الي كلامو صادق وما فيهش غش.
+
+وملي يوصل للنبوة ﷺ، الصدق هذا يكون أساس كل شيء. لأنه الصدق هو اللي يخلي الناس تصدق الدعوة متاعو، وتثق في رسالته، ويشوفوا فيه نموذج حي للأخلاق العالية. الصدق مش كلمة فمّا، الصدق أساس الإيمان، هو اللي يبني قلب صافي، وعقل واعي، ويخليك قريب من الله في كل موقف.
+
+تخيل، لو كل واحد فينا يكون صادق في كلامو وتصرفاتو، المجتمع الكل يولي خير، الناس يولي عندهم أمانة في التعامل، والثقة تزيد بين الناس. الصدق هذا، اللي بداه النبي ﷺ من صغيرو، هو اللي باش يعلّمنا باش نكونوا عباد صادقين،`},
+      {title: "اليوم 2: دعاء", text: "اللهم اجعل صيامي فيه صيام الصالحين وقيام الليل فيه قيام المتقين."},
+      {title: "اليوم 3: آية", text: "واذكروا الله في أيام معدودات. فمن تعجل في يومين فلا إثم عليه ومن تأخر فلا إثم عليه."},
+      {title: "اليوم 4: حديث", text: "من صام رمضان إيماناً واحتساباً غفر له ما تقدم من ذنبه."},
+      {title: "اليوم 5: دعاء", text: "اللهم اجعل هذا الشهر شهر رحمة ومغفرة وبركة لي ولأهلي."}
+      // يمكنك إضافة باقي الأيام حتى 30
+    ];
+
+    let currentDay = 0;
+
+    function showContent(day) {
+      const content = contents[day];
+      document.getElementById('content-title').innerText = content.title;
+      document.getElementById('content-text').innerText = content.text;
+    }
+
+    function nextDay() {
+      if (currentDay < contents.length - 1) {
+        currentDay++;
+        showContent(currentDay);
+      } else {
+        alert("لقد وصلت إلى نهاية الأيام المتاحة!");
+      }
+    }
+
+    function prevDay() {
+      if (currentDay > 0) {
+        currentDay--;
+        showContent(currentDay);
+      } else {
+        alert("هذا هو اليوم الأول!");
+      }
+    }
+
+    // عرض اليوم الأول عند التحميل
+    showContent(currentDay);
+  </script>
+
+</body>
+</html>
