@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Emily Carter - Family Medicine Clinic</title>
+    <!-- Google Fonts: Inter and Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS.js for animations -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4);
+        }
+        .btn-secondary {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+        .btn-secondary:hover {
+            box-shadow: 0 6px 20px rgba(67, 233, 123, 0.4);
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f1f8e9 100%);
+            padding: 100px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #7f8c8d;
+        }
+        .hero .btn {
+            margin: 0 10px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: white;
+        }
+        .about .container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .about img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-right: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .about-content h2 {
+            margin-bottom: 20px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: #f9f9f9;
+        }
+        .services h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .service-card {
+            text-align: center;
+        }
+        .service-card i {
+            font-size: 3rem;
+            color: #4facfe;
+            margin-bottom: 15px;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose {
+            padding: 80px 0;
+            background: white;
+        }
+        .why-choose h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .why-choose .grid {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+        .why-choose .card {
+            text-align: center;
+        }
+        .why-choose i {
+            font-size: 2.5rem;
+            color: #43e97b;
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: #f9f9f9;
+        }
+        .contact .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .contact-info {
+            flex: 1;
+            margin-right: 40px;
+        }
+        .contact-form {
+            flex: 1;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+        }
+        .contact-form button {
+            width: 100%;
+        }
+        .social-buttons {
+            margin-top: 20px;
+        }
+        .social-buttons a {
+            margin: 0 10px;
+            font-size: 1.5rem;
+            color: #4facfe;
+            transition: color 0.3s ease;
+        }
+        .social-buttons a:hover {
+            color: #00f2fe;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer .social-icons a {
+            margin: 0 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .about .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about img {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            .contact .container {
+                flex-direction: column;
+            }
+            .contact-info {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero" data-aos="fade-up">
+        <div class="container">
+            <h1>Dr. Emily Carter, MD</h1>
+            <p>Family Medicine Specialist</p>
+            <p>Caring for Your Health with Compassion and Expertise</p>
+            <a href="#contact" class="btn">Book Appointment</a>
+            <a href="#contact" class="btn btn-secondary">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- About the Doctor -->
+    <section class="about" data-aos="fade-up">
+        <div class="container">
+            <img src="https://via.placeholder.com/200" alt="Dr. Emily Carter">
+            <div class="about-content">
+                <h2>About Dr. Emily Carter</h2>
+                <p>Dr. Emily Carter is a dedicated family medicine physician with over 15 years of experience in providing comprehensive healthcare services. She specializes in preventive care, chronic disease management, and patient-centered treatments, ensuring every patient receives personalized attention.</p>
+                <p>With a passion for holistic health, Dr. Carter combines modern medical practices with a compassionate approach to build lasting relationships with her patients.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Medical Services -->
+    <section class="services" data-aos="fade-up">
+        <div class="container">
+            <h2>Our Medical Services</h2>
+            <div class="grid">
+                <div class="card service-card">
+                    <i class="fas fa-stethoscope"></i>
+                    <h3>General Checkups</h3>
+                    <p>Comprehensive health examinations to monitor your well-being.</p>
+                </div>
+                <div class="card service-card">
+                    <i class="fas fa-syringe"></i>
+                    <h3>Vaccinations</h3>
+                    <p>Up-to-date vaccinations for all ages to protect against diseases.</p>
+                </div>
+                <div class="card service-card">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Cardiac Care</h3>
+                    <p>Specialized care for heart health and cardiovascular conditions.</p>
+                </div>
+                <div class="card service-card">
+                    <i class="fas fa-user-md"></i>
+                    <h3>Pediatric Services</h3>
+                    <p>Expert care for children from infancy to adolescence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose" data-aos="fade-up">
+        <div class="container">
+            <h2>Why Choose Us</h2>
+            <div class="grid">
+                <div class="card">
+                    <i class="fas fa-award"></i>
+                    <h3>Years of Experience</h3>
+                    <p>Over 15 years of trusted medical expertise.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Modern Equipment</h3>
+                    <p>State-of-the-art technology for accurate diagnoses.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Trust & Integrity</h3>
+                    <p>Committed to ethical and transparent care.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Compassionate Care</h3>
+                    <p>Patient-focused approach with empathy and respect.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact" data-aos="fade-up">
+        <div class="container">
+            <div class="contact-info">
+                <h2>Contact Us</h2>
+                <p><i class="fas fa-phone"></i> Phone: (123) 456-7890</p>
+                <p><i class="fas fa-map-marker-alt"></i> Address: 123 Health St, Medical City, USA</p>
+                <div class="social-buttons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form action="#" method="post">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="tel" name="phone" placeholder="Your Phone" required>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Dr. Emily Carter Clinic. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS.js Initialization -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html>
