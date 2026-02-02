@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partager sur Facebook</title>
+    
+    <!-- Balises Open Graph pour le partage Facebook (remplacez les URLs par les vôtres) -->
+    <meta property="og:title" content="Mon Image et Texte">
+    <meta property="og:description" content="Voici le texte à partager avec l'image.">
+    <meta property="og:image" content="https://scontent.ftun10-2.fna.fbcdn.net/v/t39.30808-1/476247891_588065853990717_5010367941545574603_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=103&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=3gXBWVgl71wQ7kNvwGqVc6-&_nc_oc=Adm0yiiBiyjoqqF7aOAp36fA1mFGqRIjxeMo2NpvZfy-noIL5huFUZ3fvyzgimN5K6A&_nc_zt=24&_nc_ht=scontent.ftun10-2.fna&_nc_gid=BOAtzgibZQG_Dj5amcNfnw&oh=00_Afueve7COGXbueEzAY8echci9ws7eyBSHsB6iTd7m3I2Hw&oe=69871B3C"> <!-- Remplacez par l'URL de votre image -->
+    <meta property="og:url" content="https://www.facebook.com/AsfourSer"> <!-- Remplacez par l'URL de votre page -->
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+        p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4267B2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #365899;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mon Image et Texte</h1>
+    <img src="https://scontent.ftun10-2.fna.fbcdn.net/v/t39.30808-1/476247891_588065853990717_5010367941545574603_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=103&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=3gXBWVgl71wQ7kNvwGqVc6-&_nc_oc=Adm0yiiBiyjoqqF7aOAp36fA1mFGqRIjxeMo2NpvZfy-noIL5huFUZ3fvyzgimN5K6A&_nc_zt=24&_nc_ht=scontent.ftun10-2.fna&_nc_gid=BOAtzgibZQG_Dj5amcNfnw&oh=00_Afueve7COGXbueEzAY8echci9ws7eyBSHsB6iTd7m3I2Hw&oe=69871B3C" alt="Ma Image"> <!-- Remplacez par l'URL de votre image -->
+    <p>Voici le texte que vous souhaitez partager avec l'image.</p>
+    <button onclick="partagerSurFacebook()">Partager sur Facebook</button>
+
+    <script>
+        function partagerSurFacebook() {
+            var url = window.location.href;
+            window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url), '_blank');
+        }
+    </script>
+</body>
+</html>
