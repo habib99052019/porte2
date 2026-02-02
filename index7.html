@@ -1,98 +1,61 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>شارك صفحتنا على Facebook</title>
-
-<!-- Open Graph meta tags -->
-<meta property="og:title" content="زوروا صفحة AsfourSer على Facebook!">
-<meta property="og:description" content="جربت الصفحة وكانت رائعة! شاركنا رأيك الآن!">
-<meta property="og:image" content="https://scontent.ftun10-2.fna.fbcdn.net/v/t39.30808-1/476247891_588065853990717_5010367941545574603_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=103&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=3gXBWVgl71wQ7kNvwGqVc6-&_nc_oc=Adm0yiiBiyjoqqF7aOAp36fA1mFGqRIjxeMo2NpvZfy-noIL5huFUZ3fvyzgimN5K6A&_nc_zt=24&_nc_ht=scontent.ftun10-2.fna&_nc_gid=BOAtzgibZQG_Dj5amcNfnw&oh=00_Afueve7COGXbueEzAY8echci9ws7eyBSHsB6iTd7m3I2Hw&oe=69871B3C">
-<meta property="og:url" content="https://www.facebook.com/AsfourSer">
-
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f2f2f2;
-    padding: 20px;
-  }
-  .card {
-    display: inline-block;
-    background-color: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    max-width: 350px;
-    margin: 20px auto;
-  }
-  .card img {
-    width: 100%;
-    display: block;
-  }
-  .card .text {
-    padding: 15px;
-    background-color: #1877F2;
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-  }
-  .buttons {
-    margin-top: 15px;
-  }
-  .btn {
-    background-color: #1877F2;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    border: none;
-    font-size: 14px;
-    font-weight: bold;
-    margin: 5px;
-    cursor: pointer;
-  }
-  .btn:hover {
-    background-color: #145dbf;
-  }
-</style>
-</head>
-<body>
-
-<h2>شارك صفحتنا على Facebook!</h2>
-
-<!-- بطاقة الصورة + النص -->
-<div class="card">
-  <img src="https://scontent.ftun10-2.fna.fbcdn.net/v/t39.30808-1/476247891_588065853990717_5010367941545574603_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=103&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=3gXBWVgl71wQ7kNvwGqVc6-&_nc_oc=Adm0yiiBiyjoqqF7aOAp36fA1mFGqRIjxeMo2NpvZfy-noIL5huFUZ3fvyzgimN5K6A&_nc_zt=24&_nc_ht=scontent.ftun10-2.fna&_nc_gid=BOAtzgibZQG_Dj5amcNfnw&oh=00_Afueve7COGXbueEzAY8echci9ws7eyBSHsB6iTd7m3I2Hw&oe=69871B3C" alt="AsfourSer">
-  <div class="text">زوروا صفحة AsfourSer على Facebook!</div>
-</div>
-
-<!-- الأزرار -->
-<div class="buttons">
-  <button class="btn" onclick="copyText()">انسخ النص للـ Share</button>
-  <button class="btn" onclick="shareOnFacebook()">شارك على Facebook</button>
-</div>
-
+<button class="button share_twitter" data-url="http://....">
+    Partager sur twitter
+</button>
+<button class="button share_facebook" data-url="https://habib99052019.github.io/porte2/index8.html">
+    Partager sur facebook
+</button>
+<button class="button share_gplus" data-url="http://....">
+    Partager sur google+
+</button>
+<button class="button share_linkedin" data-url="http://....">
+    Partager sur linkedin
+</button>
 <script>
-const shareText = "جربت صفحة AsfourSer وكانت رائعة! @AsfourSer";
+    (function(){
 
-// نسخ النص
-function copyText() {
-  navigator.clipboard.writeText(shareText).then(() => {
-    alert("النص تم نسخه! الآن يمكنك لصقه على Facebook.");
-  }).catch(err => {
-    alert("حدث خطأ أثناء النسخ.");
-  });
-}
+    var popupCenter = function(url, title, width, height){
+        var popupWidth = width || 640;
+        var popupHeight = height || 320;
+        var windowLeft = window.screenLeft || window.screenX;
+        var windowTop = window.screenTop || window.screenY;
+        var windowWidth = window.innerWidth || document.documentElement.clientWidth;
+        var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        var popupLeft = windowLeft + windowWidth / 2 - popupWidth / 2 ;
+        var popupTop = windowTop + windowHeight / 2 - popupHeight / 2;
+        var popup = window.open(url, title, 'scrollbars=yes, width=' + popupWidth + ', height=' + popupHeight + ', top=' + popupTop + ', left=' + popupLeft);
+        popup.focus();
+        return true;
+    };
 
-// زر Share على Facebook
-function shareOnFacebook() {
-  const pageUrl = encodeURIComponent("https://www.facebook.com/AsfourSer"); // رابط الصفحة أو Landing Page مع OG tags
-  const quoteText = encodeURIComponent(shareText);
-  const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}&quote=${quoteText}`;
-  window.open(facebookUrl, "_blank", "width=600,height=400");
-}
+    document.querySelector('.share_twitter').addEventListener('click', function(e){
+        e.preventDefault();
+        var url = this.getAttribute('data-url');
+        var shareUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(document.title) +
+            "&via=Grafikart_fr" +
+            "&url=" + encodeURIComponent(url);
+        popupCenter(shareUrl, "Partager sur Twitter");
+    });
+
+    document.querySelector('.share_facebook').addEventListener('click', function(e){
+        e.preventDefault();
+        var url = this.getAttribute('data-url');
+        var shareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url);
+        popupCenter(shareUrl, "Partager sur facebook");
+    });
+
+    document.querySelector('.share_gplus').addEventListener('click', function(e){
+        e.preventDefault();
+        var url = this.getAttribute('data-url');
+        var shareUrl = "https://plus.google.com/share?url=" + encodeURIComponent(url);
+        popupCenter(shareUrl, "Partager sur Google+");
+    });
+
+    document.querySelector('.share_linkedin').addEventListener('click', function(e){
+        e.preventDefault();
+        var url = this.getAttribute('data-url');
+        var shareUrl = "https://www.linkedin.com/shareArticle?url=" + encodeURIComponent(url);
+        popupCenter(shareUrl, "Partager sur Linkedin");
+    });
+
+})();
 </script>
-
-</body>
-</html>
