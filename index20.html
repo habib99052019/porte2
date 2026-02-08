@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Surveillance tableau</title>
+  <style>
+    body { font-family: Arial; background:#111; color:#fff; text-align:center }
+    video, canvas { border:2px solid #444; margin:10px }
+    .alert {
+      color:red;
+      font-size:24px;
+      font-weight:bold;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      50% { opacity:0; }
+    }
+  </style>
+</head>
+<body>
+
+<h2>🎥 Surveillance tableau (Webcam)</h2>
+
+<video id="video" width="320" height="240" autoplay></video>
+<canvas id="canvas" width="320" height="240" hidden></canvas>
+
+<br>
+<button onclick="setReference()">📌 Image de référence</button>
+<button onclick="check()">🔍 Vérifier</button>
+
+<div id="result"></div>
+
+<script>
+let referenceData = null;
+const video = document.getElementById('video');
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+navigator.mediaDevices.getUserMedia({ video: true })
+  .then(stream => video.srcObject = stream);
+
+function setReference() {
+  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+  referenceData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  alert("Image de référence enregistrée ✅");
+}
+
+function check() {
+  if (!referenceData) return alert("Définis d'abord une référence");
+
+  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+  const currentData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+  let diff = 0;
+  for (let i = 0; i < currentData.data.length; i += 4) {
+    diff += Math.abs(currentData.data[i] - referenceData.data[i]);
+  }
+
+  if (diff > 5000000) {
+    document.getElementById('result').innerHTML =
+      '<div class="alert">🚨 Tableau manquant !</div>';
+  } else {
+    document.getElementById('result').innerHTML = '✅ Tout est normal';
+  }
+}
+</script>
+
+</body>
+</html>
