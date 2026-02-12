@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Story Exemple</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000;
+  margin: 0;
+}
+
+.story {
+  width: 300px;
+  height: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d') center/cover no-repeat;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.story-text {
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+  right: 20px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 5px black;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.story-text {
+  animation: fadeIn 2s ease-in-out;
+}
+</style>
+</head>
+<body>
+
+<div class="story">
+  <div class="story-text">Bonjour mes amis !</div>
+</div>
+
+</body>
+</html>
